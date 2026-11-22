@@ -167,8 +167,26 @@ section h2 {
     width: 280px;
     height: 200px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 10px;  
+   cursor: pointer;
+  transition: transform 0.2s ease;
 }
+.gallery img:hover {
+    transform: scale(1.03);
+}
+
+.gallery-info {
+    display: none;
+    max-width: 600px;
+    margin: 20px auto 0;
+    padding: 15px 20px;
+    background-color: white;
+    border-left: 4px solid #c49a6c;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
 
 footer {
     background-color: #72543d;
@@ -326,8 +344,9 @@ footer {
         <img src="pic1.jpg" alt="Family photo">
     <img src="pic2.jpg" alt="Family gathering">
     <img src="pic3.jpg" alt="Family celebration">
-
+   
     </div>
+    <div id="gallery-info" class="gallery-info"></div>
 </section>
 
 <footer>
@@ -335,13 +354,33 @@ footer {
     <p>&copy; 2026 Our Family Tree. All Rights Reserved.</p>
 </footer>
 <script>
-    const members = document.querySelectorAll('.member');
+      const members = document.querySelectorAll('.member');
 
-    members.forEach(member => {
-        member.addEventListener('click', () => {
-            member.classList.toggle('active');
+        members.forEach(member => {
+            member.addEventListener('click', () => {
+                member.classList.toggle('active');
+            });
         });
-    });
+
+        const galleryImages = document.querySelectorAll('.gallery img');
+        const galleryInfo = document.getElementById('gallery-info');
+
+        galleryImages.forEach(img => {
+            img.addEventListener('click', () => {
+                const title = img.getAttribute('alt') || 'Family Memory';
+                const story = img.getAttribute('data-info') || `Memory: ${title}`;
+
+                if (galleryInfo.dataset.activeSrc === img.getAttribute('src') && galleryInfo.style.display === 'block') {
+                    galleryInfo.style.display = 'none';
+                    galleryInfo.dataset.activeSrc = '';
+                } else {
+                    galleryInfo.innerHTML = `<strong>${title}</strong><p>${story}</p>`;
+                    galleryInfo.style.display = 'block';
+                    galleryInfo.dataset.activeSrc = img.getAttribute('src');
+                }
+            });
+        });
+
 </script>
 
 
