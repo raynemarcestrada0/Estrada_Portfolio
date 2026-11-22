@@ -117,23 +117,37 @@ section h2 {
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     border-bottom: 4px solid #c49a6c;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.member:hover {
+    transform: translateY(-5px);
 }
 
 .member h4 {
     color: #805c3b;
 }
-  .member-name {
+
+.member-name {
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 12px;
 }
 
 .member-info {
+    display: none;
     text-align: left;
     font-size: 14px;
     border-top: 1px solid #eee4d8;
     padding-top: 10px;
+    margin-top: 10px;
 }
+
+.member.active .member-info {
+    display: block;
+}
+
 
 .member-info p {
     margin-bottom: 6px;
@@ -320,6 +334,16 @@ footer {
     <h3>Our Family, Our Greatest Treasure</h3>
     <p>&copy; 2026 Our Family Tree. All Rights Reserved.</p>
 </footer>
+<script>
+    const members = document.querySelectorAll('.member');
+
+    members.forEach(member => {
+        member.addEventListener('click', () => {
+            member.classList.toggle('active');
+        });
+    });
+</script>
+
 
 </body>
 </html>
