@@ -39,25 +39,28 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 15px;
+    margin: 0 8px;
+    padding: 6px 14px;
+    border-radius: 20px;
     font-size: 16px;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
-
 nav a:hover {
-    color: #e9c99e;
+    background-color: rgba(255, 255, 255, 0.18);
+    color: #f7dfc2;
 }
 
 .hero {
     background: linear-gradient(
-        rgba(50, 35, 20, 0.5),
-        rgba(50, 35, 20, 0.5)
-    ), url("https://placehold.co/1200x500?text=Family+Background");
-
+        rgba(50, 35, 20, 0.55),
+        rgba(50, 35, 20, 0.55)
+    ), url("pic2.jpg");
     background-size: cover;
     background-position: center;
     color: white;
     text-align: center;
     padding: 120px 20px;
+
 }
 
 .hero h2 {
@@ -341,17 +344,17 @@ footer {
     <h2>Family Memories</h2>
     <p>Every picture tells a story worth remembering.</p>
     <div class="gallery">
-        <img src="pic1.jpg" alt="Family photo">
-    <img src="pic2.jpg" alt="Family gathering">
-    <img src="pic3.jpg" alt="Family celebration">
-   
-    </div>
+       <img src="pic1.jpg" alt="Family Photo" data-info="A treasured snapshot together at home, surrounded by warmth and laughter.">
+    <img src="pic2.jpg" alt="Family Gathering" data-info="Quality time spent catching up, sharing stories, and enjoying each other's company.">
+    <img src="pic3.jpg" alt="Family Celebration" data-info="Celebrating milestones and special occasions together as one big family.">
+ </div>
     <div id="gallery-info" class="gallery-info"></div>
 </section>
 
 <footer>
     <h3>Our Family, Our Greatest Treasure</h3>
     <p>&copy; 2026 Our Family Tree. All Rights Reserved.</p>
+    <a href="#home" class="top-btn">Back to Top ↑</a>
 </footer>
 <script>
       const members = document.querySelectorAll('.member');
